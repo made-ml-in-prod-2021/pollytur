@@ -1,0 +1,27 @@
+hydra:
+    run:
+        dir: .
+
+logging_config: configs/logging_config.yaml
+data: data/raw/heart.csv
+model: models/model_logreg.pkl
+output: models/output.csv
+transformer: models/transformer.pkl
+dataset_features:
+    one_hot_encoding:
+        - sex
+        - cp
+        - fbs
+        - slope
+        - thal
+        - restecg
+        - exang
+    numerical:
+        - age
+        - trestbps
+        - chol
+        - thalach
+        - oldpeak
+        - ca
+    categorical:
+    target:

@@ -1,0 +1,35 @@
+hydra:
+    run:
+        dir: .
+
+logging_config: configs/logging_config.yaml
+input_data: data/raw/heart.csv
+output_model: models/model_logreg.pkl
+metric: models/metrics_logreg.json
+transformer: models/transformer.pkl
+dataset_splitting:
+    test_size: 0.1
+    val_needed: False
+    random_state: 42
+dataset_features:
+    one_hot_encoding:
+        - sex
+        - cp
+        - fbs
+        - slope
+        - thal
+        - restecg
+        - exang
+    numerical:
+        - age
+        - trestbps
+        - chol
+        - thalach
+        - oldpeak
+        - ca
+    categorical:
+    target_col: target
+training:
+    module: sklearn.tree
+    method: DecisionTreeClassifier
+    model_parameters :
