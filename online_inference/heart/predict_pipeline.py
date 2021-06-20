@@ -26,6 +26,7 @@ def setup_models(path_transformer: str, path_model: str):
     global TRANSFORMER, MODEL
     TRANSFORMER = load_transformer(path_transformer)
     MODEL = load_model(path_model)
+    return MODEL
 
 
 def preprocess_dataset(df: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[pd.Series]]:
